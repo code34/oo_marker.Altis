@@ -44,17 +44,20 @@
 
 		// set Brush
 		["SetBrush", "Solid"] spawn _mark;
-
+		
+		hint "Set Brush";
 		sleep 2;
 
 		// attach marker to object
 		["Attach", player] spawn _mark;
 
+		hint "Attach marker to player";
 		sleep 2;
 
 		// blink marker each x seconds
 		["Blink", 0.5] spawn _mark;
 
+		hint "Blink marker";
 		sleep 5;
 
 		// unblink marker
@@ -63,17 +66,21 @@
 		// detach marker
 		["Detach"] spawn _mark;
 
+		hint "UnBlink & detach marker";
 		sleep 5;
 
 		// Fadeoff marker in x seconds
 		["Fadeoff", 5] spawn _mark;
 
+		hint "Fade off";
 		sleep 5;
 
 		// Fadein marker in x seconds
 		["Fadein", 5] spawn _mark;
 
+		hint "Fade in";
 		sleep 5;
 
+		hint "Delete marker";
 		// delete marker
 		["delete", _mark] call OO_MARKER;
