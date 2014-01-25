@@ -2,37 +2,44 @@
 
 		// create marker
 		_mark = ["new", position player] call OO_MARKER;
+		hint "create OO marker";
 
 		sleep 2;
 
 		// set text
 		["SetText", "Player is here"] spawn _mark;
 
+		hint "Set text";
 		sleep 2;
 
 		// set color
 		["SetColor", "ColorRed"] spawn _mark;
 
+		hint "Set red color";
 		sleep 2;
 
 		// set size
 		["SetSize", [3,3]] spawn _mark;
 
+		hint "Increase size";
 		sleep 2;
 
 		// set position
 		["SetPos", position player] spawn _mark;
 
+		hint "Set Pos to player pos";
 		sleep 2;
 
 		// set Alpha
 		["SetAlpha", 1] spawn _mark;
 
+		hint "Set Alpha to 1";
 		sleep 2;
 
 		// set Type
-		["SetType", "mil_dot"] spawn _mark;
+		["SetType", "mil_triangle"] spawn _mark;
 
+		hint "Set Type to triangle";
 		sleep 2;
 
 		// set Brush
