@@ -1,35 +1,49 @@
-		private ["_mark"];
-
 		call compilefinal preprocessFileLineNumbers "oo_marker.sqf";
 
 		// create marker
 		_mark = ["new", position player] call OO_MARKER;
 
-		sleep 10;
+		sleep 2;
 
 		// set text
 		["SetText", "Player is here"] spawn _mark;
 
+		sleep 2;
+
 		// set color
 		["SetColor", "ColorRed"] spawn _mark;
+
+		sleep 2;
 
 		// set size
 		["SetSize", [3,3]] spawn _mark;
 
+		sleep 2;
+
 		// set position
 		["SetPos", position player] spawn _mark;
+
+		sleep 2;
 
 		// set Alpha
 		["SetAlpha", 1] spawn _mark;
 
+		sleep 2;
+
 		// set Type
 		["SetType", "mil_dot"] spawn _mark;
+
+		sleep 2;
 
 		// set Brush
 		["SetBrush", "Solid"] spawn _mark;
 
+		sleep 2;
+
 		// attach marker to object
 		["Attach", player] spawn _mark;
+
+		sleep 2;
 
 		// blink marker each x seconds
 		["Blink", 0.5] spawn _mark;

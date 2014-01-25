@@ -90,41 +90,48 @@
 
 		PUBLIC FUNCTION("string", "SetShape") {
 			MEMBER("shape", _this);
+			MEMBER("Draw", "");
 		};
 
 		PUBLIC FUNCTION("string", "SetType") {
 			MEMBER("type", _this);
+			MEMBER("Draw", "");
 		};
 
 		PUBLIC FUNCTION("string", "SetBrush") {
 			MEMBER("brush", _this);
+			MEMBER("Draw", "");
 		};
 
 		PUBLIC FUNCTION("string", "SetColor") {
 			MEMBER("color", _this);
+			MEMBER("Draw", "");
 		};
 
 		PUBLIC FUNCTION("array", "SetSize") {
 			MEMBER("size", _this);
+			MEMBER("Draw", "");
 		};
 
 		PUBLIC FUNCTION("string", "SetText") {
 			MEMBER("text", _this);
+			MEMBER("Draw", "");
 		};
 
 		PUBLIC FUNCTION("array", "SetPos") {
 			MEMBER("position", _this);
+			MEMBER("Draw", "");
 		};
 
 		PUBLIC FUNCTION("scalar", "SetAlpha") {
 			MEMBER("alpha", _this);
+			MEMBER("Draw", "");
 		};
 
 		PUBLIC FUNCTION("object", "Attach") {
 			MEMBER("attached", true);
 			while {MEMBER("attached", nil)} do {
 				MEMBER("SetPos", position _this);
-				MEMBER("Draw", "");
 				sleep 0.1;
 			};
 		};
@@ -139,10 +146,8 @@
 			MEMBER("blinked", true);
 			while {MEMBER("blinked", nil)} do {
 				MEMBER("SetAlpha", 0);
-				MEMBER("Draw", "");
 				sleep _time;
 				MEMBER("SetAlpha", 1);
-				MEMBER("Draw", "");
 				sleep _time;
 			};
 		};
@@ -156,7 +161,6 @@
 			_time = (_this / 100);
 			for "_fade" from 0 to 1 step 0.01 do {
 				MEMBER("SetAlpha", _fade);
-				MEMBER("Draw", "");
 				sleep _time;
 			};
 		};
@@ -166,7 +170,6 @@
 			_time = (_this / 100);
 			for "_fade" from 1 to 0 step -0.01 do {
 				MEMBER("SetAlpha", _fade);
-				MEMBER("Draw", "");
 				sleep _time;
 			};
 		};
