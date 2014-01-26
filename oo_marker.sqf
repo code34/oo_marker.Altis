@@ -28,7 +28,7 @@
 		PRIVATE VARIABLE("bool","blinked");
 		PRIVATE VARIABLE("bool","attached");
 		PRIVATE VARIABLE("bool","local");
-
+		PRIVATE VARIABLE("scalar","dir");
 		PRIVATE VARIABLE("scalar","alpha");
 		PRIVATE VARIABLE("string","shape");
 		PRIVATE VARIABLE("string","type");
@@ -47,6 +47,7 @@
 			MEMBER("markerid",_markerid);
 			MEMBER("local", false);
 			MEMBER("position", _this);
+			MEMBER("dir", 0);
 			MEMBER("alpha", 1);
 			MEMBER("shape", "ICON");
 			MEMBER("type", "mil_dot");
@@ -64,6 +65,7 @@
 			if(!isNil "_mark") then { deletemarker _mark;};
 			if!(MEMBER("local", nil)) then {
 				_mark = createMarker [format["oo_marker_%1", MEMBER("markerid", nil)], MEMBER("position", nil)];
+				_mark setMarkerDir MEMBER("dir", nil);
 				_mark setMarkerAlpha MEMBER("alpha", nil);
 				_mark setMarkerShape MEMBER("shape", nil);
 				_mark setMarkerType MEMBER("type",nil);
@@ -73,6 +75,7 @@
 				_mark setmarkertext MEMBER("text", nil);
 			} else {
 				_mark = createMarkerlocal [format["oo_marker_%1", MEMBER("markerid", nil)], MEMBER("position", nil)];
+				_mark setMarkerDirlocal MEMBER("dir", nil);
 				_mark setMarkerAlphalocal MEMBER("alpha", nil);
 				_mark setMarkerShapelocal MEMBER("shape", nil);
 				_mark setMarkerTypelocal MEMBER("type",nil);
@@ -128,9 +131,15 @@
 			MEMBER("Draw", "");
 		};
 
+		PUBLIC FUNCTION("scalar", "SetDir") {
+			MEMBER("dir", _this);
+			MEMBER("Draw", "");
+		};
+
 		PUBLIC FUNCTION("object", "Attach") {
 			MEMBER("attached", true);
 			while {MEMBER("attached", nil)} do {
+				MEMBER("dir", getdir _this);
 				MEMBER("SetPos", position _this);
 				sleep 0.1;
 			};
