@@ -45,7 +45,7 @@
 			_markerid = _markerid + 1;
 			MEMBER("instanceid",_markerid);
 			MEMBER("markerid",_markerid);
-			MEMBER("local", false);
+			MEMBER("local", true);
 			MEMBER("position", _this);
 			MEMBER("dir", 0);
 			MEMBER("alpha", 1);

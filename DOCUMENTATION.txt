@@ -40,6 +40,15 @@
 */
 
 /*
+	Function: = ["SetLocal", bool] spawn OO_MARKER;
+	Set locality of object
+	
+	Parameters:
+		bool - if true OO marker is local to machine
+	
+*/
+
+/*
 	Function: ["SetText", textStr] spawn _mark;
 	Set the marker text
 	
