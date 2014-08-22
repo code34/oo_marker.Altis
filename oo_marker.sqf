@@ -52,7 +52,7 @@
 			};		
 
 			MEMBER("name",_name);
-			MEMBER("local", true);
+			MEMBER("local", false);
 			MEMBER("position", _this);
 			MEMBER("dir", 0);
 			MEMBER("alpha", 1);
