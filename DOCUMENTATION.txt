@@ -19,8 +19,6 @@
 	*/
 
 
-
-
 /*
 	Function: _mark = ["new", position] call OO_MARKER;
 	Create a new marker object
@@ -159,3 +157,60 @@
 	Parameters: None
 	
 */
+
+/*
+	Function "getName" spawn _mark;
+	string return marker name
+*/
+
+/*
+	Function "getPosition" spawn _mark;
+	array return marker position
+*/
+
+/*
+	Function "getDir" spawn _mark;
+	scalar return marker dir
+*/
+
+/*
+	Function "getAlpha" spawn _mark;
+	scalar return marker alpha
+*/
+
+/*
+	Function "getShape" spawn _mark;
+	string return marker shape
+*/
+
+/*
+	Function "getType" spawn _mark;
+	string return marker type
+*/
+
+/*
+	Function "getSize" spawn _mark;
+	array return marker size
+*/
+
+/*
+	Function "getText" spawn _mark;
+	string return marker text
+*/
+
+/*
+	Function "isBlinked" spawn _mark;
+	bool return if marker blink
+*/
+
+/*
+	Function "isAttached" spawn _mark;
+	bool return if marker attached
+*/
+
+
+/*
+	Function "isLocal" spawn _mark;
+	bool return if local or not
+*/
+
