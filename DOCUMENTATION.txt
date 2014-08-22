@@ -40,7 +40,7 @@
 */
 
 /*
-	Function: = ["SetLocal", bool] spawn OO_MARKER;
+	Function: = ["setLocal", bool] spawn OO_MARKER;
 	Set locality of object
 	
 	Parameters:
@@ -49,7 +49,7 @@
 */
 
 /*
-	Function: ["SetText", textStr] spawn _mark;
+	Function: ["setText", textStr] spawn _mark;
 	Set the marker text
 	
 	Parameters:
@@ -58,7 +58,7 @@
 */
 
 /*
-	Function: ["SetColor", colorStr] spawn _mark;
+	Function: ["setColor", colorStr] spawn _mark;
 	Set the marker color
 	
 	Parameters:
@@ -70,7 +70,7 @@
 */
 
 /*
-	Function: ["SetSize", sizeArray] spawn _mark;
+	Function: ["setSize", sizeArray] spawn _mark;
 	Set the marker size
 	
 	Parameters:
@@ -79,7 +79,7 @@
 */
 
 /*
-	Function: ["SetPos", posArray] spawn _mark;
+	Function: ["setPos", posArray] spawn _mark;
 	Set the marker text
 	
 	Parameters:
@@ -88,7 +88,7 @@
 */
 
 /*
-	Function: ["SetAlpha", alphaScal] spawn _mark;
+	Function: ["setAlpha", alphaScal] spawn _mark;
 	Set the marker alpha
 	
 	Parameters:
@@ -97,7 +97,7 @@
 */
 
 /*
-	Function: ["SetType", typeStr] spawn _mark;
+	Function: ["setType", typeStr] spawn _mark;
 	Set the marker type
 	
 	Parameters:
@@ -109,7 +109,7 @@
 */
 
 /*
-	Function: ["Attach", object] spawn _mark;
+	Function: ["attachTo", object] spawn _mark;
 	Attach a marker to an object
 	
 	Parameters:
@@ -118,7 +118,7 @@
 */
 
 /*
-	Function: ["Detach"] spawn _mark;
+	Function: ["detach"] spawn _mark;
 	Detach a marker of an object
 	
 	Parameters: None
@@ -126,7 +126,7 @@
 */
 
 /*
-	Function: ["Fadeoff", timeScl] spawn _mark;
+	Function: ["fadeOff", timeScl] spawn _mark;
 	Fade off in x seconds
 	
 	Parameters:
@@ -135,7 +135,7 @@
 */
 
 /*
-	Function: ["Fadein", timeScl] spawn _mark;
+	Function: ["fadeIn", timeScl] spawn _mark;
 	Fade in in x seconds
 	
 	Parameters:
@@ -144,7 +144,7 @@
 */
 
 /*
-	Function: ["Blink", timeScl] spawn _mark;
+	Function: ["blink", timeScl] spawn _mark;
 	Blink the marker each x seconds
 	
 	Parameters:
@@ -153,12 +153,9 @@
 */
 
 /*
-	Function: ["UnBlink"] spawn _mark;
+	Function: ["unblink"] spawn _mark;
 	UnBlink the marker 
 	
 	Parameters: None
 	
 */
-
-
-
