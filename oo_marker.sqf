@@ -67,7 +67,6 @@
 		};
 
 		PUBLIC FUNCTION("","getName") FUNC_GETVAR("name");
-		PUBLIC FUNCTION("","getLocal") FUNC_GETVAR("local");
 		PUBLIC FUNCTION("","getPosition") FUNC_GETVAR("position");
 		PUBLIC FUNCTION("","getDir") FUNC_GETVAR("dir");
 		PUBLIC FUNCTION("","getAlpha") FUNC_GETVAR("alpha");
@@ -77,15 +76,16 @@
 		PUBLIC FUNCTION("","getColor") FUNC_GETVAR("color");
 		PUBLIC FUNCTION("","getSize") FUNC_GETVAR("size");
 		PUBLIC FUNCTION("","getText") FUNC_GETVAR("text");
-		PUBLIC FUNCTION("","getBlinked") FUNC_GETVAR("blinked");
-		PUBLIC FUNCTION("","getAttached") FUNC_GETVAR("attached");
 
+		PUBLIC FUNCTION("","isBlinked") FUNC_GETVAR("blinked");
+		PUBLIC FUNCTION("","isAttached") FUNC_GETVAR("attached");
+		PUBLIC FUNCTION("","isLocal") FUNC_GETVAR("local");
 
 		PUBLIC FUNCTION("string", "draw") {
 			private ["_mark"];
 			_mark = MEMBER("marker", nil);
 			if(!isNil "_mark") then { deletemarker _mark;};
-			if!(MEMBER("local", nil)) then {
+			if!(MEMBER("isLocal", nil)) then {
 				_mark = createMarker [MEMBER("name", nil), MEMBER("position", nil)];
 				_mark setMarkerDir MEMBER("dir", nil);
 				_mark setMarkerAlpha MEMBER("alpha", nil);
