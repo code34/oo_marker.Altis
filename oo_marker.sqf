@@ -227,7 +227,7 @@
 		PUBLIC FUNCTION("object", "attachTo") {
 			MEMBER("attached", true);
 			while {MEMBER("attached", nil)} do {
-				MEMBER("dir", getdir _this);
+				MEMBER("setDir", getDir _this);
 				MEMBER("setPos", position _this);
 				sleep 0.1;
 			};
