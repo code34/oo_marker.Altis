@@ -39,10 +39,10 @@
 
 /*
 	Function: = ["setLocal", bool] spawn OO_MARKER;
-	Set locality of object
+	Set locality of object 
 	
 	Parameters:
-		bool - if true OO marker is local to machine
+		bool - if true OO marker is local (private) to machine
 	
 */
 
@@ -196,6 +196,11 @@
 /*
 	Function "getText" spawn _mark;
 	string return marker text
+*/
+
+/*
+	Function "getMarker" spawn _mark;
+	return marker object
 */
 
 /*
