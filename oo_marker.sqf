@@ -53,7 +53,7 @@
 		PUBLIC FUNCTION("","getName") FUNC_GETVAR("name");
 		PUBLIC FUNCTION("","getMarker") FUNC_GETVAR("marker");
 
-		PUBLIC FUNCTION("array", "draw") {
+		PRIVATE FUNCTION("array", "draw") {
 			private ["_mark"];
 
 			if!(MEMBER("isLocal", nil)) then {
@@ -80,7 +80,7 @@
 			MEMBER("marker", _mark);
 		};
 
-		PUBLIC FUNCTION("", "undraw") {
+		PRIVATE FUNCTION("", "undraw") {
 			deletemarker MEMBER("marker", nil);
 		};
 
@@ -273,7 +273,7 @@
 
 
 		PUBLIC FUNCTION("","deconstructor") { 
-			deleteMarker MEMBER("marker", nil);
+			MEMBER("undraw", nil);
 			DELETE_VARIABLE("name");
 			DELETE_VARIABLE("attached");
 			DELETE_VARIABLE("blinked");
