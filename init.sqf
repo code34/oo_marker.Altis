@@ -10,31 +10,41 @@
 
 		// set text
 		["setText", "Player is here"] spawn _mark;
-
 		hint "Set text";
 		sleep 2;
 
 		// set color
 		["setColor", "ColorRed"] spawn _mark;
-
 		hint "Set red color";
+		sleep 2;
+
+		// set locality
+		["setLocal", true] spawn _mark;
+		hint "Set locality to private";
+		sleep 2;
+
+		// set size
+		["setSize", [2,2]] spawn _mark;
+		hint "Increase size";
 		sleep 2;
 
 		// set size
 		["setSize", [0.5,0.5]] spawn _mark;
-
-		hint "Increase size";
+		hint "Decrease size";
 		sleep 2;
 
 		// set position
 		["setPos", position player] spawn _mark;
-
 		hint "Set Pos to player pos";
 		sleep 2;
 
 		// set Alpha
-		["setAlpha", 1] spawn _mark;
+		["setAlpha", 0.5] spawn _mark;
+		hint "Set Alpha to 0.5";
+		sleep 2;
 
+		// set Alpha
+		["setAlpha", 1] spawn _mark;
 		hint "Set Alpha to 1";
 		sleep 2;
 
