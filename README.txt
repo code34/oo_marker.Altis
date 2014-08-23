@@ -31,6 +31,7 @@
 	You can share, modify, distribute this script but don't remove the licence and the name of the original author
 
 	logs:
+		0.3 - OO Marker - add accessor, fix efficients problem, delete useless internals variable
 		0.2 - OO Marker - fix locality & case sensitive, add accessor methods
 		0.1 - OO Marker - first release
 
