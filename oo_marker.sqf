@@ -26,6 +26,15 @@
 		PRIVATE VARIABLE("string","marker");
 		PRIVATE VARIABLE("bool","attached");
 		PRIVATE VARIABLE("bool","local");
+		PRIVATE VARIABLE("scalar","dir");
+		PRIVATE VARIABLE("scalar","alpha");
+		PRIVATE VARIABLE("string","shape");
+		PRIVATE VARIABLE("string","type");
+		PRIVATE VARIABLE("string","brush");
+		PRIVATE VARIABLE("string","color");
+		PRIVATE VARIABLE("array","size");
+		PRIVATE VARIABLE("string","text");
+		PRIVATE VARIABLE("array","position");
 
 		PUBLIC FUNCTION("array","constructor") {
 			private _instanceid = MEMBER("instanceid",nil);
@@ -41,8 +50,17 @@
 			};
 
 			MEMBER("name", _name);
+			MEMBER("position", _this);
 			MEMBER("local", false);
-			MEMBER("draw", _this);
+			MEMBER("dir", 0);
+			MEMBER("alpha", 1);
+			MEMBER("shape", "ICON");
+			MEMBER("type", "Empty");
+			MEMBER("brush", "Solid");
+			MEMBER("color", "ColorBlack");
+			MEMBER("size", [1,1]);
+			MEMBER("text", "");
+			MEMBER("draw", nil);
 		};
 
 		PUBLIC FUNCTION("","isAttached") FUNC_GETVAR("attached");
@@ -50,29 +68,28 @@
 		PUBLIC FUNCTION("","getName") FUNC_GETVAR("name");
 		PUBLIC FUNCTION("","getMarker") FUNC_GETVAR("marker");
 
-		PRIVATE FUNCTION("array", "draw") {
+		PRIVATE FUNCTION("", "draw") {
 			private _mark = "";
-
 			if!(MEMBER("isLocal", nil)) then {
-				_mark = createMarker [MEMBER("name", nil), _this];
-				_mark setMarkerDir 0;
-				_mark setMarkerAlpha 1;
-				_mark setMarkerShape "ICON";
-				_mark setMarkerType "Empty";
-				_mark setmarkerbrush "Solid";
-				_mark setmarkercolor "ColorBlack";
-				_mark setmarkersize [1,1];
-				_mark setmarkertext "";
+				_mark = createMarker [MEMBER("name", nil), MEMBER("position", nil)];
+				_mark setMarkerDir MEMBER("dir", nil);
+				_mark setMarkerAlpha MEMBER("alpha", nil);
+				_mark setMarkerShape MEMBER("shape", nil);
+				_mark setMarkerType MEMBER("type", nil);
+				_mark setmarkerbrush MEMBER("brush", nil);
+				_mark setmarkercolor MEMBER("color", nil);
+				_mark setmarkersize MEMBER("size", nil);
+				_mark setmarkertext MEMBER("text", nil);
 			} else {
-				_mark = createMarkerlocal [MEMBER("name", nil), _this];
-				_mark setMarkerDirlocal 0;
-				_mark setMarkerAlphalocal 1;
-				_mark setMarkerShapelocal "ICON";
-				_mark setMarkerTypelocal "Empty";
-				_mark setmarkerbrushlocal "Solid";
-				_mark setmarkercolorlocal "ColorBlack";
-				_mark setmarkersizelocal [1,1];
-				_mark setmarkertextlocal "";
+				_mark = createMarkerlocal [MEMBER("name", nil), MEMBER("position", nil)];
+				_mark setMarkerDirlocal MEMBER("dir", nil);
+				_mark setMarkerAlphalocal MEMBER("alpha", nil);
+				_mark setMarkerShapelocal MEMBER("shape", nil);
+				_mark setMarkerTypelocal MEMBER("type", nil);
+				_mark setmarkerbrushlocal MEMBER("brush", nil);
+				_mark setmarkercolorlocal MEMBER("color", nil);
+				_mark setmarkersizelocal MEMBER("size", nil);
+				_mark setmarkertextlocal MEMBER("text", nil);
 			};
 			MEMBER("marker", _mark);
 		};
@@ -87,34 +104,16 @@
 
 		PUBLIC FUNCTION("bool", "setLocal") {
 			MEMBER("local", _this);
-
-			private _position = MEMBER("getPos", nil);
-			private _dir = MEMBER("getDir", nil);
-			private _alpha = MEMBER("getAlpha", nil);
-			private _shape = MEMBER("getShape", nil);
-			private _type = MEMBER("getType", nil);
-			private _brush = MEMBER("getBrush", nil);
-			private _color = MEMBER("getColor", nil);
-			private _size = MEMBER("getSize", nil);
-			private _text = MEMBER("getText", nil);
-
 			MEMBER("undraw", nil);
-			MEMBER("draw", _position);
-			MEMBER("setDir", _dir);
-			MEMBER("setAlpha", _alpha);
-			MEMBER("setShape", _shape);
-			MEMBER("setType", _type);
-			MEMBER("setBrush", _brush);
-			MEMBER("setColor", _color);
-			MEMBER("setSize", _size);
-			MEMBER("setText", _text);
+			MEMBER("draw", nil);
 		};
 
 		PUBLIC FUNCTION("","getShape") {
-			markerShape MEMBER("marker", nil);
+			MEMBER("shape", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setShape") {
+			MEMBER("shape", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setMarkerShape _this;
 			} else {
@@ -123,10 +122,11 @@
 		};
 
 		PUBLIC FUNCTION("","getType") {
-			markerType MEMBER("marker", nil);
+			MEMBER("type", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setType") {
+			MEMBER("type", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setMarkerType _this;
 			} else {
@@ -135,10 +135,11 @@
 		};
 
 		PUBLIC FUNCTION("","getBrush") {
-			markerBrush MEMBER("marker", nil);
+			MEMBER("brush", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setBrush") {
+			MEMBER("brush", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setmarkerbrush _this;
 			} else {
@@ -148,10 +149,11 @@
 		};
 
 		PUBLIC FUNCTION("","getColor") {
-			markerColor MEMBER("marker", nil);
+			MEMBER("color", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setColor") {
+			MEMBER("color", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setmarkercolor _this;
 			} else {
@@ -160,10 +162,11 @@
 		};
 
 		PUBLIC FUNCTION("","getSize") {
-			markerSize MEMBER("marker", nil);
+			MEMBER("size", nil);
 		};
 
 		PUBLIC FUNCTION("array", "setSize") {
+			MEMBER("size", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setmarkersize _this;
 			} else {
@@ -172,10 +175,11 @@
 		};
 
 		PUBLIC FUNCTION("","getText") {
-			markerText MEMBER("marker", nil);
+			MEMBER("text", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setText") {
+			MEMBER("text", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setmarkertext _this;
 			} else {
@@ -184,10 +188,11 @@
 		};
 
 		PUBLIC FUNCTION("","getPos") {
-			markerPos MEMBER("marker", nil);
+			MEMBER("position", nil);
 		};
 
 		PUBLIC FUNCTION("array", "setPos") {
+			MEMBER("position", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setMarkerPos _this;
 			} else {
@@ -196,10 +201,11 @@
 		};
 
 		PUBLIC FUNCTION("","getAlpha") {
-			markerAlpha MEMBER("marker", nil);
+			MEMBER("alpha", nil);
 		};
 
 		PUBLIC FUNCTION("scalar", "setAlpha") {
+			MEMBER("alpha", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setMarkerAlpha _this;
 			} else {
@@ -208,10 +214,11 @@
 		};
 
 		PUBLIC FUNCTION("","getDir") {
-			markerDir MEMBER("marker", nil);
+			MEMBER("dir", nil);
 		};
 
 		PUBLIC FUNCTION("scalar", "setDir") {
+			MEMBER("dir", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setMarkerDir _this;
 			} else {
@@ -286,5 +293,13 @@
 			DELETE_VARIABLE("attached");
 			DELETE_VARIABLE("marker");
 			DELETE_VARIABLE("local");
+			DELETE_VARIABLE("scalar","dir");
+			DELETE_VARIABLE("scalar","alpha");
+			DELETE_VARIABLE("string","shape");
+			DELETE_VARIABLE("string","type");
+			DELETE_VARIABLE("string","brush");
+			DELETE_VARIABLE("string","color");
+			DELETE_VARIABLE("array","size");
+			DELETE_VARIABLE("string","text");
 		};
 	ENDCLASS;
