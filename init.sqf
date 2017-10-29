@@ -1,12 +1,16 @@
 		call compilefinal preprocessFileLineNumbers "oo_marker.sqf";
 	
-		sleep 5;
+		sleep 2;
 
 		// create marker
 		_mark = ["new", position player] call OO_MARKER;
-		hint "create OO marker";
-
+		hint "create Empty OO marker";
 		sleep 2;
+
+		// set Type
+		["setType", "mil_triangle"] spawn _mark;
+		hint "Set Type to triangle";
+		sleep 2;		
 
 		// set text
 		["setText", "Player is here"] spawn _mark;
@@ -48,12 +52,6 @@
 		hint "Set Alpha to 1";
 		sleep 2;
 
-		// set Type
-		["setType", "mil_triangle"] spawn _mark;
-
-		hint "Set Type to triangle";
-		sleep 2;
-
 		// set Brush
 		["setBrush", "Solid"] spawn _mark;
 		
@@ -67,18 +65,13 @@
 		sleep 2;
 
 		// blink marker each x seconds
-		["blink", 0.5] spawn _mark;
-
+		["blink", [5,0.1]] spawn _mark;
 		hint "Blink marker";
 		sleep 5;
 
-		// unblink marker
-		["unBlink"] spawn _mark;
-
 		// detach marker
 		["detach"] spawn _mark;
-
-		hint "UnBlink & detach marker";
+		hint "Detach marker";
 		sleep 5;
 
 		// Fadeoff marker in x seconds
