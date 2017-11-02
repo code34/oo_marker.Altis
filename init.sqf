@@ -1,9 +1,9 @@
-		call compilefinal preprocessFileLineNumbers "oo_marker.sqf";
+		call compile preprocessFileLineNumbers "oo_marker.sqf";
 	
 		sleep 2;
 
 		// create marker
-		_mark = ["new", position player] call OO_MARKER;
+		private _mark = ["new", position player] call OO_MARKER;
 		hint "create Empty OO marker";
 		sleep 2;
 

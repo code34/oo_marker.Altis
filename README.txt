@@ -23,7 +23,7 @@
 	Usage:
 		put the "oo_marker.sqf" and the "oop.h" files in your mission directory
 		put this code into your mission init.sqf
-		call compilefinal preprocessFileLineNumbers "oo_marker.sqf";
+		call compile preprocessFileLineNumbers "oo_marker.sqf";
 
 	See example mission in directory: init.sqf
 	
