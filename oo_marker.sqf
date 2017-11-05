@@ -37,11 +37,11 @@
 		PRIVATE VARIABLE("array","position");
 
 		PUBLIC FUNCTION("array","constructor") {
+			DEBUG(#, "OO_MARKER::constructor")
 			private _instanceid = MEMBER("instanceid",nil);
 			if (isNil "_instanceid") then {_instanceid = 0;};
 			_instanceid = _instanceid + 1;
 			MEMBER("instanceid",_instanceid);
-
 			private _name = "";
 			if(isDedicated) then {
 				_name = format["SRV_OO_MRK_%1", _instanceid];
@@ -69,6 +69,7 @@
 		PUBLIC FUNCTION("","getMarker") FUNC_GETVAR("marker");
 
 		PRIVATE FUNCTION("", "draw") {
+			DEBUG(#, "OO_MARKER::draw")
 			private _mark = "";
 			if!(MEMBER("isLocal", nil)) then {
 				_mark = createMarker [MEMBER("name", nil), MEMBER("position", nil)];
@@ -95,24 +96,29 @@
 		};
 
 		PRIVATE FUNCTION("", "undraw") {
+			DEBUG(#, "OO_MARKER::undraw")
 			deletemarker MEMBER("marker", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setName") {
+			DEBUG(#, "OO_MARKER::setName")
 			MEMBER("name", _this);
 		};
 
 		PUBLIC FUNCTION("bool", "setLocal") {
+			DEBUG(#, "OO_MARKER::setLocal")
 			MEMBER("local", _this);
 			MEMBER("undraw", nil);
 			MEMBER("draw", nil);
 		};
 
 		PUBLIC FUNCTION("","getShape") {
+			DEBUG(#, "OO_MARKER::getShape")
 			MEMBER("shape", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setShape") {
+			DEBUG(#, "OO_MARKER::setShape")
 			MEMBER("shape", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setMarkerShape _this;
@@ -122,10 +128,12 @@
 		};
 
 		PUBLIC FUNCTION("","getType") {
+			DEBUG(#, "OO_MARKER::getType")
 			MEMBER("type", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setType") {
+			DEBUG(#, "OO_MARKER::setType")
 			MEMBER("type", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setMarkerType _this;
@@ -135,10 +143,12 @@
 		};
 
 		PUBLIC FUNCTION("","getBrush") {
+			DEBUG(#, "OO_MARKER::getBrush")
 			MEMBER("brush", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setBrush") {
+			DEBUG(#, "OO_MARKER::setBrush")
 			MEMBER("brush", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setmarkerbrush _this;
@@ -149,10 +159,12 @@
 		};
 
 		PUBLIC FUNCTION("","getColor") {
+			DEBUG(#, "OO_MARKER::getColor")
 			MEMBER("color", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setColor") {
+			DEBUG(#, "OO_MARKER::setColor")
 			MEMBER("color", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setmarkercolor _this;
@@ -162,10 +174,12 @@
 		};
 
 		PUBLIC FUNCTION("","getSize") {
+			DEBUG(#, "OO_MARKER::getSize")
 			MEMBER("size", nil);
 		};
 
 		PUBLIC FUNCTION("array", "setSize") {
+			DEBUG(#, "OO_MARKER::setSize")
 			MEMBER("size", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setmarkersize _this;
@@ -175,10 +189,12 @@
 		};
 
 		PUBLIC FUNCTION("","getText") {
+			DEBUG(#, "OO_MARKER::getText")
 			MEMBER("text", nil);
 		};
 
 		PUBLIC FUNCTION("string", "setText") {
+			DEBUG(#, "OO_MARKER::setText")
 			MEMBER("text", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setmarkertext _this;
@@ -188,10 +204,12 @@
 		};
 
 		PUBLIC FUNCTION("","getPos") {
+			DEBUG(#, "OO_MARKER::getPos")
 			MEMBER("position", nil);
 		};
 
 		PUBLIC FUNCTION("array", "setPos") {
+			DEBUG(#, "OO_MARKER::setPos")
 			MEMBER("position", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setMarkerPos _this;
@@ -201,10 +219,12 @@
 		};
 
 		PUBLIC FUNCTION("","getAlpha") {
+			DEBUG(#, "OO_MARKER::getAlpha")
 			MEMBER("alpha", nil);
 		};
 
 		PUBLIC FUNCTION("scalar", "setAlpha") {
+			DEBUG(#, "OO_MARKER::setAlpha")
 			MEMBER("alpha", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setMarkerAlpha _this;
@@ -214,10 +234,12 @@
 		};
 
 		PUBLIC FUNCTION("","getDir") {
+			DEBUG(#, "OO_MARKER::getDir")
 			MEMBER("dir", nil);
 		};
 
 		PUBLIC FUNCTION("scalar", "setDir") {
+			DEBUG(#, "OO_MARKER::setDir")
 			MEMBER("dir", _this);
 			if!(MEMBER("isLocal", nil)) then {
 				MEMBER("marker", nil) setMarkerDir _this;
@@ -227,6 +249,7 @@
 		};
 
 		PUBLIC FUNCTION("object", "attachTo") {
+			DEBUG(#, "OO_MARKER::attachTo")
 			MEMBER("attached", true);
 			while {MEMBER("attached", nil)} do {
 				MEMBER("setDir", getDir _this);
@@ -236,6 +259,7 @@
 		};
 
 		PUBLIC FUNCTION("array", "attachToSector") {
+			DEBUG(#, "OO_MARKER::attachToSector")
 			private _object = _this select 0;
 			private _grid = _this select 1;
 			private _position = [];
@@ -251,10 +275,12 @@
 		};
 
 		PUBLIC FUNCTION("", "detach") {
+			DEBUG(#, "OO_MARKER::detach")
 			MEMBER("attached", false);
 		};
 
-		PUBLIC FUNCTION("array", "blink") {	
+		PUBLIC FUNCTION("array", "blink") {
+			DEBUG(#, "OO_MARKER::blink")
 			private _duration = _this select 0;
 			private _speed = _this select 1;
 			private _count = floor(_duration / _speed);
@@ -269,6 +295,7 @@
 		};
 
 		PUBLIC FUNCTION("scalar", "fadeIn") {
+			DEBUG(#, "OO_MARKER::fadeIn")
 			private _time = (_this / 100);
 			private _fade = 0;
 			for "_fade" from 0 to 1 step 0.01 do {
@@ -278,6 +305,7 @@
 		};
 
 		PUBLIC FUNCTION("scalar", "fadeOff") {
+			DEBUG(#, "OO_MARKER::fadeOff")
 			private _time = (_this / 100);
 			private _fade = 0;
 			for "_fade" from 1 to 0 step -0.01 do {
@@ -288,6 +316,7 @@
 
 
 		PUBLIC FUNCTION("","deconstructor") { 
+			DEBUG(#, "OO_MARKER::deconstructor")
 			MEMBER("undraw", nil);
 			DELETE_VARIABLE("name");
 			DELETE_VARIABLE("attached");
