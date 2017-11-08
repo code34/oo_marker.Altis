@@ -43,15 +43,16 @@
 			_instanceid = _instanceid + 1;
 			MEMBER("instanceid",_instanceid);
 			private _name = "";
+			private _position = param [0, [0,0,0], [[]]];
+			private _local = param [1, true, [true]];
 			if(isDedicated) then {
 				_name = format["SRV_OO_MRK_%1", _instanceid];
 			} else {
 				_name = format["%1_OO_MRK_%2", name player, _instanceid];				
 			};
-
 			MEMBER("name", _name);
-			MEMBER("position", _this);
-			MEMBER("local", false);
+			MEMBER("position", _position);
+			MEMBER("local", _local);
 			MEMBER("dir", 0);
 			MEMBER("alpha", 1);
 			MEMBER("shape", "ICON");
