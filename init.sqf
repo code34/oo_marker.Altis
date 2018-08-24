@@ -3,7 +3,7 @@
 		sleep 2;
 
 		// create marker
-		private _mark = ["new", position player] call OO_MARKER;
+		private _mark = ["new", [position player, true]] call OO_MARKER;
 		hint "create Empty OO marker";
 		sleep 2;
 

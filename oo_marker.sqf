@@ -48,7 +48,7 @@
 			if(isDedicated) then {
 				_name = format["SRV_OO_MRK_%1", _instanceid];
 			} else {
-				_name = format["%1_OO_MRK_%2", name player, _instanceid];				
+				_name = format["%1_OO_MRK_%2", name player, _instanceid];
 			};
 			MEMBER("name", _name);
 			MEMBER("position", _position);
